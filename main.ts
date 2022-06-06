@@ -692,10 +692,28 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     reeling()
 })
 info.onCountdownEnd(function () {
+    water_jiggle.setImage(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `)
     if (taps_req <= tap) {
         fish.setPosition(rod1.x, rod1.y)
         fish.setImage(fishes[fish_type])
-        fisher.sayText("Cool, I just caught " + fish_names[fish_type], 2000, false)
+        fisher.sayText("Cool, I just caught " + fish_names[fish_type], 5000, false)
         info.changeScoreBy(1)
         fish.setImage(img`
             . . . . . . . . . . . . . . . . 
@@ -717,6 +735,8 @@ info.onCountdownEnd(function () {
             `)
         newest_catch.setImage(newcatch_pics[fish_type])
         reeling2 = false
+    } else {
+        fisher.sayText("Dang, I almost caught " + fish_names[fish_type], 5000, false)
     }
 })
 function cast_ani () {
